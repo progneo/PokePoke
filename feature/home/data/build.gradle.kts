@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "me.progneo.pokepoke.data"
+    namespace = "me.progneo.pokepoke.feature.home.data"
     compileSdk = 34
 
     defaultConfig {
@@ -17,8 +17,12 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+        }
+
+        release {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

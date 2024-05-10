@@ -14,7 +14,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val POKEAPI = "PokeAPI"
 
     @Provides
     fun providesMoshiConverterFactory(): MoshiConverterFactory = MoshiConverterFactory.create()
@@ -33,7 +32,6 @@ object NetworkModule {
             .build()
 
     @Provides
-    @Named(POKEAPI)
     fun providesIpAddressRetrofit(
         @Named(NetworkUrlModule.POKEAPI) baseUrl: String,
         moshiConverterFactory: MoshiConverterFactory,

@@ -15,5 +15,5 @@ object NetworkUrlModule {
 
     @Provides
     @Named(POKEAPI)
-    fun providesPokeapiUrl() = POKEAPI
+    fun providesPokeapiUrl() = POKEAPI_URL
 }
