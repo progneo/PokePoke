@@ -12,7 +12,13 @@ internal class PokemonDataSourceImpl @Inject constructor(
     private val pokemonService: PokemonService
 ) : PokemonDataSource {
 
-    override fun getPokemon(name: String): Result<PokemonDataModel> {
+    private val cachedPokemonList = mutableListOf<PokemonDataModel>()
+
+    override suspend fun getPokemon(name: String): Result<PokemonDataModel> {
+        cachedPokemonList.find { it.name == name }?.let {
+            return Result.success(it)
+        }
+
         try {
             val response = pokemonService.getPokemon(name)
 
@@ -25,12 +31,14 @@ internal class PokemonDataSourceImpl @Inject constructor(
             val pokemonResponse = response.body()
 
             if (pokemonResponse != null) {
-                return Result.success(pokemonResponse.toData())
+                val pokemon = pokemonResponse.toData()
+                cachedPokemonList.add(pokemon)
+                return Result.success(pokemon)
             }
 
             return Result.failure(DataException(message = "An error occurred!"))
         } catch (requestTimeOutException: SocketTimeoutException) {
-            return Result.failure(DataException(cause = requestTimeOutException))
+            return Result.failure(requestTimeOutException)
         }
     }
 }

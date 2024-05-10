@@ -7,5 +7,5 @@ import retrofit2.http.Path
 
 internal interface PokemonService {
     @GET("pokemon/{name}")
-    fun getPokemon(@Path("name") name: String): Response<PokemonApiModel>
+    suspend fun getPokemon(@Path("name") name: String): Response<PokemonApiModel>
 }

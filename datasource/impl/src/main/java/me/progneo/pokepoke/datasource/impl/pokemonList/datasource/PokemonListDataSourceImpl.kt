@@ -12,7 +12,7 @@ internal class PokemonListDataSourceImpl @Inject constructor(
     private val pokemonListService: PokemonListService
 ) : PokemonListDataSource {
 
-    override fun getPokemonList(limit: Int, offset: Int): Result<PokemonListDataModel> {
+    override suspend fun getPokemonList(limit: Int, offset: Int): Result<PokemonListDataModel> {
         try {
             val response = pokemonListService.getPokemonList(limit = limit, offset = offset)
 

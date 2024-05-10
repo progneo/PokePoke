@@ -32,7 +32,7 @@ object NetworkModule {
             .build()
 
     @Provides
-    fun providesIpAddressRetrofit(
+    fun providesPokeapiRetrofit(
         @Named(NetworkUrlModule.POKEAPI) baseUrl: String,
         moshiConverterFactory: MoshiConverterFactory,
         okHttpClient: OkHttpClient

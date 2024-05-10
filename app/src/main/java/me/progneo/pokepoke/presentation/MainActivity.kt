@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
 import me.progneo.pokepoke.navigation.AppNavGraph
-import me.progneo.pokepoke.presentation.theme.PokePokeTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

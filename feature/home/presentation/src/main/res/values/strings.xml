@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="detail_error_no_pokemon_description">No pokémon data was found.</string>
-    <string name="detail_error_timeout_description">It seems the request to the server timed out.</string>
-    <string name="detail_error_unknown_description">Oh no! Something went wrong.</string>
-    <string name="detail_top_app_bar_title">PokePoke!</string>
+    <string name="home_top_app_bar_title">PokePoke!</string>
+    <string name="home_error_panel_description">Something went wrong :(</string>
+    <string name="home_error_panel_reload_button_text">Reload</string>
 </resources>
