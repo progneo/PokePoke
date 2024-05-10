@@ -51,10 +51,6 @@ dependencies {
     implementation(projects.datasource.api)
     implementation(projects.datasource.impl)
 
-    implementation(projects.domain)
-    implementation(projects.data)
-    implementation(projects.presentation)
-
     // hilt
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)

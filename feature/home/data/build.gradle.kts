@@ -40,7 +40,7 @@ dependencies {
     implementation(projects.datasource.api)
     implementation(projects.datasource.impl)
 
-    implementation(projects.domain)
+    implementation(projects.feature.home.domain)
 
     // hilt
     implementation(libs.dagger.hilt.android)

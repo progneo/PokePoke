@@ -28,8 +28,9 @@ include(":network")
 include(":datasource:api")
 include(":datasource:impl")
 
-include(":domain")
-include(":data")
-include(":presentation")
+setOf("domain", "data", "presentation").forEach { layer ->
+    include(":feature:home:$layer")
+    project(":feature:home:$layer").projectDir = File("/feature/home/$layer")
+}
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
