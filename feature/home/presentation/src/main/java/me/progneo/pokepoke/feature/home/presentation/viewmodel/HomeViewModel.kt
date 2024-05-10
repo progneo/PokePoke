@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import me.progneo.pokepoke.common.ui.BaseViewModel
+import me.progneo.pokepoke.common.ui.viewmodel.BaseViewModel
 import me.progneo.pokepoke.feature.home.domain.model.pokemonList.PokemonListRequestDomainModel
 import me.progneo.pokepoke.feature.home.domain.usecase.GetPokemonListUseCase
 import me.progneo.pokepoke.feature.home.presentation.mapper.toPresentation
@@ -24,7 +24,6 @@ internal class HomeViewModel @Inject constructor(
 
     fun onAction(action: HomeViewAction) {
         when (action) {
-            is HomeViewAction.SelectPokemon -> onPokemonSelectAction(action.pokemonName)
             is HomeViewAction.LoadPokemonList -> getPokemonListData()
             else -> Unit
         }
@@ -76,8 +75,5 @@ internal class HomeViewModel @Inject constructor(
                 }
             )
         }
-    }
-
-    private fun onPokemonSelectAction(name: String) {
     }
 }

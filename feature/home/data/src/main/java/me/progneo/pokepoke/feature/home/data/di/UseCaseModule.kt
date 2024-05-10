@@ -14,7 +14,7 @@ abstract class UseCaseModule {
 
     @Binds
     @Singleton
-    internal abstract fun bindGetProductListUseCase(
+    internal abstract fun bindGetPokemonListUseCase(
         getPokemonListUseCaseImpl: GetPokemonListUseCaseImpl
     ): GetPokemonListUseCase
 }

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "me.progneo.pokepoke.presentation"
+    namespace = "me.progneo.pokepoke.feature.detail.presentation"
     compileSdk = 34
 
     defaultConfig {
@@ -52,7 +52,7 @@ android {
 dependencies {
     implementation(projects.common)
 
-    implementation(projects.feature.home.domain)
+    implementation(projects.feature.detail.domain)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

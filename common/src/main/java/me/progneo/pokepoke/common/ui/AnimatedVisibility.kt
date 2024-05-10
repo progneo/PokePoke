@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 @Composable
 fun AnimatedVisibility(
     visible: Boolean = true,
-    delayMillis: Int = 0,
+    delayMillis: Int = 300,
     content: @Composable AnimatedVisibilityScope.() -> Unit
 ) {
     AnimatedVisibility(

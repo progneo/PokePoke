@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-import me.progneo.pokepoke.feature.home.data.repository.PokemonListRepositoryImpl
+import me.progneo.pokepoke.feature.home.data.repository.PokemonRepositoryImpl
 import me.progneo.pokepoke.feature.home.domain.repository.PokemonRepository
 
 @Module
@@ -15,6 +15,6 @@ internal abstract class RepositoryModule {
     @Binds
     @Singleton
     internal abstract fun bindPokemonRepository(
-        pokemonRepositoryImpl: PokemonListRepositoryImpl
+        pokemonRepositoryImpl: PokemonRepositoryImpl
     ): PokemonRepository
 }

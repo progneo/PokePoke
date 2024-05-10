@@ -66,6 +66,10 @@ dependencies {
     implementation(projects.feature.home.data)
     implementation(projects.feature.home.presentation)
 
+    implementation(projects.feature.detail.domain)
+    implementation(projects.feature.detail.data)
+    implementation(projects.feature.detail.presentation)
+
     // lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

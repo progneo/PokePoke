@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
-import java.util.*
+import me.progneo.pokepoke.common.extension.capitalize
 import me.progneo.pokepoke.common.ui.shimmerEffect
 import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
 import me.progneo.pokepoke.feature.home.presentation.model.PokemonPresentationModel
@@ -57,9 +57,7 @@ internal fun PokemonListItem(
                 .clip(RoundedCornerShape(8.dp))
         )
         Text(
-            text = name.replaceFirstChar {
-                if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
-            },
+            text = name.capitalize(),
             style = typography.bodyLarge,
             color = colorScheme.onBackground,
             modifier = Modifier

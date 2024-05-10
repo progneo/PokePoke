@@ -1,6 +1,5 @@
 package me.progneo.pokepoke.feature.home.presentation.view.screen
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
@@ -11,33 +10,39 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import me.progneo.pokepoke.common.ui.AnimatedVisibility
 import me.progneo.pokepoke.common.ui.ScreenEnterObserver
+import me.progneo.pokepoke.common.ui.widget.ErrorPanelContainer
 import me.progneo.pokepoke.feature.home.presentation.R
 import me.progneo.pokepoke.feature.home.presentation.model.HomeViewAction
 import me.progneo.pokepoke.feature.home.presentation.model.HomeViewState
-import me.progneo.pokepoke.feature.home.presentation.view.widget.ErrorPanelContainer
 import me.progneo.pokepoke.feature.home.presentation.view.widget.PokemonListContainer
 import me.progneo.pokepoke.feature.home.presentation.view.widget.PokemonListPlaceholderContainer
 import me.progneo.pokepoke.feature.home.presentation.viewmodel.HomeViewModel
 
 @Composable
-internal fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltViewModel()) {
+internal fun HomeScreen(
+    onPokemonSelect: (String) -> Unit,
+    viewModel: HomeViewModel = hiltViewModel()
+) {
     ScreenEnterObserver {
         viewModel.onAction(HomeViewAction.LoadPokemonList)
     }
 
-    LaunchedEffect(key1 = viewModel.state) {
-        Log.i("state", viewModel.state.toString())
-    }
+    HomeScreen(state = viewModel.state, onAction = { action ->
+        when (action) {
+            is HomeViewAction.SelectPokemon -> {
+                onPokemonSelect(action.pokemonName)
+            }
 
-    HomeScreen(state = viewModel.state, onAction = viewModel::onAction)
+            else -> Unit
+        }
+        viewModel.onAction(action)
+    })
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,7 +64,7 @@ internal fun HomeScreen(state: HomeViewState, onAction: (HomeViewAction) -> Unit
                 .fillMaxHeight()
                 .padding(innerPadding)
         ) {
-            AnimatedVisibility(visible = state is HomeViewState.Success, delayMillis = 300) {
+            AnimatedVisibility(visible = state is HomeViewState.Success) {
                 if (state is HomeViewState.Success) {
                     PokemonListContainer(
                         state.pokemonList,
@@ -69,10 +74,10 @@ internal fun HomeScreen(state: HomeViewState, onAction: (HomeViewAction) -> Unit
                     )
                 }
             }
-            AnimatedVisibility(visible = state is HomeViewState.Loading, delayMillis = 300) {
+            AnimatedVisibility(visible = state is HomeViewState.Loading) {
                 PokemonListPlaceholderContainer()
             }
-            AnimatedVisibility(visible = state is HomeViewState.Error, delayMillis = 300) {
+            AnimatedVisibility(visible = state is HomeViewState.Error) {
                 ErrorPanelContainer(
                     text = stringResource(
                         R.string.home_error_panel_description

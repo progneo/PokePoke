@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import me.progneo.pokepoke.feature.detail.presentation.navigation.DETAIL_ROUTE
+import me.progneo.pokepoke.feature.detail.presentation.navigation.detailScreen
 import me.progneo.pokepoke.feature.home.presentation.navigation.HOME_ROUTE
 import me.progneo.pokepoke.feature.home.presentation.navigation.homeScreen
 
@@ -14,6 +16,11 @@ fun AppNavGraph(navController: NavHostController) {
         startDestination = HOME_ROUTE,
         modifier = Modifier
     ) {
-        homeScreen(navController)
+        homeScreen(onPokemonSelect = {
+            navController.navigate("$DETAIL_ROUTE/$it")
+        })
+        detailScreen(onBackClick = {
+            navController.navigateUp()
+        })
     }
 }

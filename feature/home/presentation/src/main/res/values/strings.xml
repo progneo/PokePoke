@@ -2,5 +2,4 @@
 <resources>
     <string name="home_top_app_bar_title">PokePoke!</string>
     <string name="home_error_panel_description">Something went wrong :(</string>
-    <string name="home_error_panel_reload_button_text">Reload</string>
 </resources>

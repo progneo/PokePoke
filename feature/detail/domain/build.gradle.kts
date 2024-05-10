@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "me.progneo.pokepoke.domain"
+    namespace = "me.progneo.pokepoke.feature.detail.domain"
     compileSdk = 34
 
     defaultConfig {

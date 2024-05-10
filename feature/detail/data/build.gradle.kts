@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "me.progneo.pokepoke.data"
+    namespace = "me.progneo.pokepoke.feature.detail.data"
     compileSdk = 34
 
     defaultConfig {
@@ -44,7 +44,7 @@ dependencies {
     implementation(projects.datasource.api)
     implementation(projects.datasource.impl)
 
-    implementation(projects.feature.home.domain)
+    implementation(projects.feature.detail.domain)
 
     // hilt
     implementation(libs.dagger.hilt.android)
