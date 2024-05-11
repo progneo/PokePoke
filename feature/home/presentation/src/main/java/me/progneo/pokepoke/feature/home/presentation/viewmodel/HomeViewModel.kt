@@ -1,10 +1,9 @@
 package me.progneo.pokepoke.feature.home.presentation.viewmodel
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import me.progneo.pokepoke.feature.home.domain.model.pokemonList.PokemonListRequestDomainModel
 import me.progneo.pokepoke.feature.home.domain.usecase.GetPokemonListUseCase
 import me.progneo.pokepoke.feature.home.presentation.mapper.toPresentation
@@ -18,8 +17,8 @@ internal class HomeViewModel @Inject constructor(
     private val getPokemonListUseCase: GetPokemonListUseCase
 ) : me.progneo.pokepoke.common.presentaion.viewmodel.BaseViewModel() {
 
-    var state by mutableStateOf<HomeViewState>(HomeViewState.Loading)
-        private set
+    private val _state = MutableStateFlow<HomeViewState>(HomeViewState.Loading)
+    val state = _state.asStateFlow()
 
     fun onAction(action: HomeViewAction) {
         when (action) {
@@ -29,12 +28,12 @@ internal class HomeViewModel @Inject constructor(
     }
 
     private fun getPokemonListData() {
-        if (state is HomeViewState.Success) {
-            val currentList = (state as HomeViewState.Success).pokemonList
-            val currentPage = (state as HomeViewState.Success).currentPage
+        if (_state.value is HomeViewState.Success) {
+            val currentList = (_state.value as HomeViewState.Success).pokemonList
+            val currentPage = (_state.value as HomeViewState.Success).currentPage
             val offset = currentPage * PAGE_SIZE
 
-            state = HomeViewState.Success(currentList, true, currentPage)
+            _state.tryEmit(HomeViewState.Success(currentList, true, currentPage))
 
             call(
                 useCaseCall = {
@@ -47,14 +46,20 @@ internal class HomeViewModel @Inject constructor(
                 },
                 onSuccess = { pokemonListDomainModel ->
                     val pokemonList = pokemonListDomainModel.results.map { it.toPresentation() }
-                    state = HomeViewState.Success(currentList + pokemonList, false, currentPage + 1)
+                    _state.tryEmit(
+                        HomeViewState.Success(
+                            currentList + pokemonList,
+                            false,
+                            currentPage + 1
+                        )
+                    )
                 },
                 onError = {
-                    state = HomeViewState.Error(it)
+                    _state.tryEmit(HomeViewState.Error(it))
                 }
             )
         } else {
-            state = HomeViewState.Loading
+            _state.tryEmit(HomeViewState.Loading)
 
             call(
                 useCaseCall = {
@@ -67,10 +72,10 @@ internal class HomeViewModel @Inject constructor(
                 },
                 onSuccess = { pokemonListDomainModel ->
                     val pokemonList = pokemonListDomainModel.results.map { it.toPresentation() }
-                    state = HomeViewState.Success(pokemonList, false, 1)
+                    _state.tryEmit(HomeViewState.Success(pokemonList, false, 1))
                 },
                 onError = {
-                    state = HomeViewState.Error(it)
+                    _state.tryEmit(HomeViewState.Error(it))
                 }
             )
         }

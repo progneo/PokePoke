@@ -14,6 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -23,7 +25,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import me.progneo.pokepoke.common.extension.capitalize
+import me.progneo.pokepoke.common.core.extension.capitalize
 import me.progneo.pokepoke.common.presentaion.AnimatedVisibility
 import me.progneo.pokepoke.common.presentaion.ScreenEnterObserver
 import me.progneo.pokepoke.common.presentaion.shimmerEffect
@@ -40,11 +42,13 @@ import me.progneo.pokepoke.feature.detail.presentation.viewmodel.DetailViewModel
 
 @Composable
 internal fun DetailScreen(onBackClick: () -> Unit, viewModel: DetailViewModel = hiltViewModel()) {
+    val state by viewModel.state.collectAsState()
+
     ScreenEnterObserver {
         viewModel.onAction(DetailViewAction.LoadPokemon)
     }
 
-    DetailScreen(state = viewModel.state, onAction = { action ->
+    DetailScreen(state = state, onAction = { action ->
         when (action) {
             is DetailViewAction.GoBack -> {
                 onBackClick()

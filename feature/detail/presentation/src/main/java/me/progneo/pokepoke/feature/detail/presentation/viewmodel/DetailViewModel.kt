@@ -1,11 +1,10 @@
 package me.progneo.pokepoke.feature.detail.presentation.viewmodel
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import me.progneo.pokepoke.feature.detail.domain.usecase.GetPokemonUseCase
 import me.progneo.pokepoke.feature.detail.presentation.mapper.toPresentation
 import me.progneo.pokepoke.feature.detail.presentation.model.DetailViewAction
@@ -19,8 +18,8 @@ internal class DetailViewModel @Inject constructor(
 
     private val pokemonName: String = checkNotNull(savedStateHandle.get<String>("pokemonName"))
 
-    var state by mutableStateOf<DetailViewState>(DetailViewState.Loading)
-        private set
+    private val _state = MutableStateFlow<DetailViewState>(DetailViewState.Loading)
+    val state = _state.asStateFlow()
 
     fun onAction(action: DetailViewAction) {
         when (action) {
@@ -33,10 +32,10 @@ internal class DetailViewModel @Inject constructor(
         call(
             useCaseCall = { getPokemonUseCase(pokemonName) },
             onSuccess = { pokemonListDomainModel ->
-                state = DetailViewState.Success(pokemonListDomainModel.toPresentation())
+                _state.tryEmit(DetailViewState.Success(pokemonListDomainModel.toPresentation()))
             },
             onError = {
-                state = DetailViewState.Error(it)
+                _state.tryEmit(DetailViewState.Error(it))
             }
         )
     }

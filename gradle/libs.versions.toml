@@ -3,7 +3,7 @@ agp = "8.3.2"
 kotlin = "1.9.23"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
-composeBom = "2024.04.01"
+composeBom = "2024.05.00"
 retrofit2 = '2.11.0'
 okhttp = '5.0.0-alpha.11'
 dagger = "2.51.1"
@@ -11,12 +11,11 @@ hilt = "1.2.0"
 ksp = "1.9.23-1.0.20"
 coil = "2.6.0"
 moshi = "1.15.1"
-coreKtx = "1.13.1"
-junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.12.0"
+mockkAndroid = "1.13.10"
+mockkCore = "1.13.10"
+coroutinesCore = "1.8.1"
+junitCore = "4.13.2"
+junitTest = "1.1.5"
 
 [libraries]
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -28,8 +27,6 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-# coroutines
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin" }
 # network
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-coroutines = { group = "com.squareup.okhttp3", name = "okhttp-coroutines", version.ref = "okhttp" }
@@ -46,12 +43,12 @@ coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 # moshi
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+# testing
+mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockkAndroid" }
+mockk-core = { group = "io.mockk", name = "mockk", version.ref = "mockkCore" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesCore" }
+junit-core = { group = "junit", name = "junit", version.ref = "junitCore" }
+junit-test = { group = "androidx.test.ext", name = "junit", version.ref = "junitTest" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

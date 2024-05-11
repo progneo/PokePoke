@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.extension
+package me.progneo.pokepoke.common.core.extension
 
 import java.util.*
 

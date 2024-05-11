@@ -10,6 +10,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
@@ -28,11 +30,13 @@ internal fun HomeScreen(
     onPokemonSelect: (String) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+    val state by viewModel.state.collectAsState()
+
     ScreenEnterObserver {
         viewModel.onAction(HomeViewAction.LoadPokemonList)
     }
 
-    HomeScreen(state = viewModel.state, onAction = { action ->
+    HomeScreen(state = state, onAction = { action ->
         when (action) {
             is HomeViewAction.SelectPokemon -> {
                 onPokemonSelect(action.pokemonName)

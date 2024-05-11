@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.extension.capitalize
+import me.progneo.pokepoke.common.core.extension.capitalize
 
 @Composable
 internal fun SingleValueDescriptionRow(

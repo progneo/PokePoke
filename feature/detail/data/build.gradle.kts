@@ -49,4 +49,11 @@ dependencies {
     // hilt
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)
+
+    // testing
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.core)
+    testImplementation(libs.junit.core)
+    testImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.junit.test)
 }

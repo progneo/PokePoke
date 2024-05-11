@@ -2,7 +2,7 @@ package me.progneo.pokepoke.datasource.impl.pokemon.datasource
 
 import java.net.SocketTimeoutException
 import javax.inject.Inject
-import me.progneo.pokepoke.common.exception.DataException
+import me.progneo.pokepoke.common.core.exception.DataException
 import me.progneo.pokepoke.datasource.api.pokemon.datasource.PokemonDataSource
 import me.progneo.pokepoke.datasource.api.pokemon.model.PokemonDataModel
 import me.progneo.pokepoke.datasource.impl.pokemon.mapper.toData
