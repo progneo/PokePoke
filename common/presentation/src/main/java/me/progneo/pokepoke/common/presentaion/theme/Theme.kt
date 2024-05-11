@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.ui.theme
+package me.progneo.pokepoke.common.presentaion.theme
 
 import android.app.Activity
 import android.os.Build

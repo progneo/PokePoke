@@ -14,8 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.ui.shimmerEffect
-import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
+import me.progneo.pokepoke.common.presentaion.shimmerEffect
 
 @Composable
 internal fun SingleValueDescriptionRowPlaceholder(modifier: Modifier = Modifier) {
@@ -42,7 +41,7 @@ internal fun SingleValueDescriptionRowPlaceholder(modifier: Modifier = Modifier)
 @PreviewLightDark
 @Composable
 private fun PreviewDescriptionRowPlaceholder() {
-    PokePokeTheme {
+    me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme {
         SingleValueDescriptionRowPlaceholder()
     }
 }

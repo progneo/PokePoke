@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.ui.shimmerEffect
+import me.progneo.pokepoke.common.presentaion.shimmerEffect
 
 @Composable
 internal fun PokemonListItemPlaceholder(modifier: Modifier = Modifier) {

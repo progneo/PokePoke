@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "me.progneo.pokepoke.feature.home.domain"
+    namespace = "me.progneo.pokepoke.common.core"
     compileSdk = 34
 
     defaultConfig {
@@ -34,8 +34,4 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
-
-dependencies {
-    implementation(projects.common.core)
 }

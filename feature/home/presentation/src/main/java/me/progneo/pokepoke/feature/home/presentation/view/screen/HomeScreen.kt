@@ -14,9 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import me.progneo.pokepoke.common.ui.AnimatedVisibility
-import me.progneo.pokepoke.common.ui.ScreenEnterObserver
-import me.progneo.pokepoke.common.ui.widget.ErrorPanelContainer
+import me.progneo.pokepoke.common.presentaion.ScreenEnterObserver
+import me.progneo.pokepoke.common.presentaion.widget.ErrorPanelContainer
 import me.progneo.pokepoke.feature.home.presentation.R
 import me.progneo.pokepoke.feature.home.presentation.model.HomeViewAction
 import me.progneo.pokepoke.feature.home.presentation.model.HomeViewState
@@ -64,7 +63,9 @@ internal fun HomeScreen(state: HomeViewState, onAction: (HomeViewAction) -> Unit
                 .fillMaxHeight()
                 .padding(innerPadding)
         ) {
-            AnimatedVisibility(visible = state is HomeViewState.Success) {
+            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(
+                visible = state is HomeViewState.Success
+            ) {
                 if (state is HomeViewState.Success) {
                     PokemonListContainer(
                         state.pokemonList,
@@ -74,10 +75,14 @@ internal fun HomeScreen(state: HomeViewState, onAction: (HomeViewAction) -> Unit
                     )
                 }
             }
-            AnimatedVisibility(visible = state is HomeViewState.Loading) {
+            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(
+                visible = state is HomeViewState.Loading
+            ) {
                 PokemonListPlaceholderContainer()
             }
-            AnimatedVisibility(visible = state is HomeViewState.Error) {
+            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(
+                visible = state is HomeViewState.Error
+            ) {
                 ErrorPanelContainer(
                     text = stringResource(
                         R.string.home_error_panel_description

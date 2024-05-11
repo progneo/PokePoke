@@ -50,7 +50,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.common)
+    implementation(projects.common.core)
+    implementation(projects.common.presentation)
 
     implementation(projects.feature.home.domain)
 

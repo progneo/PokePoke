@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.ui.viewmodel
+package me.progneo.pokepoke.common.presentaion.viewmodel
 
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ViewModel

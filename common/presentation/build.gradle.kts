@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.daggerAndroid)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "me.progneo.pokepoke.common"
+    namespace = "me.progneo.pokepoke.common.presentation"
     compileSdk = 34
 
     defaultConfig {
@@ -51,8 +49,4 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-
-    // hilt
-    implementation(libs.dagger.hilt.android)
-    ksp(libs.dagger.hilt.compiler)
 }

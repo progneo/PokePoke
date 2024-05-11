@@ -9,8 +9,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.ui.AnimatedVisibility
-import me.progneo.pokepoke.common.ui.OnBottomReached
+import me.progneo.pokepoke.common.presentaion.OnBottomReached
 import me.progneo.pokepoke.feature.home.presentation.model.PokemonPresentationModel
 import me.progneo.pokepoke.feature.home.presentation.view.content.PokemonListItem
 import me.progneo.pokepoke.feature.home.presentation.view.content.PokemonListItemPlaceholder
@@ -41,7 +40,7 @@ internal fun PokemonListContainer(
             )
         }
         item {
-            AnimatedVisibility(visible = isLoading) {
+            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(visible = isLoading) {
                 PokemonListItemPlaceholder()
             }
         }

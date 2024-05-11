@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import me.progneo.pokepoke.common.ui.viewmodel.BaseViewModel
 import me.progneo.pokepoke.feature.detail.domain.usecase.GetPokemonUseCase
 import me.progneo.pokepoke.feature.detail.presentation.mapper.toPresentation
 import me.progneo.pokepoke.feature.detail.presentation.model.DetailViewAction
@@ -16,7 +15,7 @@ import me.progneo.pokepoke.feature.detail.presentation.model.DetailViewState
 internal class DetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val getPokemonUseCase: GetPokemonUseCase
-) : BaseViewModel() {
+) : me.progneo.pokepoke.common.presentaion.viewmodel.BaseViewModel() {
 
     private val pokemonName: String = checkNotNull(savedStateHandle.get<String>("pokemonName"))
 

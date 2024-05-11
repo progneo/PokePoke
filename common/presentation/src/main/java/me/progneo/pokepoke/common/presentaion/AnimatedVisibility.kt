@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.ui
+package me.progneo.pokepoke.common.presentaion
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope

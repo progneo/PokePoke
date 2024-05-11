@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.ui
+package me.progneo.pokepoke.common.presentaion
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable

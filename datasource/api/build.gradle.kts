@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.common)
+    implementation(projects.common.core)
 
     // hilt
     implementation(libs.dagger.hilt.android)

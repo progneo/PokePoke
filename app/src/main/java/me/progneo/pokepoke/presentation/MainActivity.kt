@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
 import me.progneo.pokepoke.navigation.AppNavGraph
 
 @AndroidEntryPoint
@@ -17,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
 
-            PokePokeTheme {
+            me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme {
                 AppNavGraph(navController = navController)
             }
         }

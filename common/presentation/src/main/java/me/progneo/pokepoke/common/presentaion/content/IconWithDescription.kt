@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.ui.content
+package me.progneo.pokepoke.common.presentaion.content
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

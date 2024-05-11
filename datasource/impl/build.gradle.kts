@@ -39,7 +39,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.common)
+    implementation(projects.common.core)
+
     implementation(projects.network)
 
     implementation(projects.datasource.api)

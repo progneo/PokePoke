@@ -22,8 +22,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import me.progneo.pokepoke.common.extension.capitalize
-import me.progneo.pokepoke.common.ui.shimmerEffect
-import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
+import me.progneo.pokepoke.common.presentaion.shimmerEffect
 import me.progneo.pokepoke.feature.home.presentation.model.PokemonPresentationModel
 import me.progneo.pokepoke.feature.home.presentation.view.widget.preview.PokemonPreviewParameterProvider
 
@@ -71,7 +70,7 @@ internal fun PokemonListItem(
 private fun PreviewDescriptionRow(
     @PreviewParameter(PokemonPreviewParameterProvider::class) pokemon: PokemonPresentationModel
 ) {
-    PokePokeTheme {
+    me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme {
         PokemonListItem(
             name = pokemon.name,
             spriteUrl = pokemon.sprites.firstOrNull(),

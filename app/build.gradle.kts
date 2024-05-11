@@ -56,7 +56,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.common)
+    implementation(projects.common.core)
+    implementation(projects.common.presentation)
     implementation(projects.network)
 
     implementation(projects.datasource.api)
@@ -72,16 +73,6 @@ dependencies {
 
     // lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
-
-    // ui
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 
     // hilt
     implementation(libs.dagger.hilt.android)

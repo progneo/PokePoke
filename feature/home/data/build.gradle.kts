@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.common)
+    implementation(projects.common.core)
 
     implementation(projects.datasource.api)
     implementation(projects.datasource.impl)

@@ -25,7 +25,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import me.progneo.pokepoke.common.extension.capitalize
-import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
 import me.progneo.pokepoke.feature.detail.presentation.R
 
 @Composable
@@ -90,7 +89,7 @@ internal fun MultipleValueDescriptionRow(
 @PreviewLightDark
 @Composable
 private fun PreviewDescriptionRow() {
-    PokePokeTheme {
+    me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme {
         MultipleValueDescriptionRow(
             label = "Name",
             values = listOf("Pikachu", "Charmander", "Bulbasaur")

@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import me.progneo.pokepoke.common.ui.viewmodel.BaseViewModel
 import me.progneo.pokepoke.feature.home.domain.model.pokemonList.PokemonListRequestDomainModel
 import me.progneo.pokepoke.feature.home.domain.usecase.GetPokemonListUseCase
 import me.progneo.pokepoke.feature.home.presentation.mapper.toPresentation
@@ -17,7 +16,7 @@ private const val PAGE_SIZE = 10
 @HiltViewModel
 internal class HomeViewModel @Inject constructor(
     private val getPokemonListUseCase: GetPokemonListUseCase
-) : BaseViewModel() {
+) : me.progneo.pokepoke.common.presentaion.viewmodel.BaseViewModel() {
 
     var state by mutableStateOf<HomeViewState>(HomeViewState.Loading)
         private set

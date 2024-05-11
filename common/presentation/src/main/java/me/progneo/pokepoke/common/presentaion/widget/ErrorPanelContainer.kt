@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.ui.widget
+package me.progneo.pokepoke.common.presentaion.widget
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,9 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.R
-import me.progneo.pokepoke.common.ui.content.IconWithDescription
-import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
+import me.progneo.pokepoke.common.presentation.R
 
 @Composable
 fun ErrorPanelContainer(text: String, onReloadClick: () -> Unit) {
@@ -26,7 +24,7 @@ fun ErrorPanelContainer(text: String, onReloadClick: () -> Unit) {
         ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        IconWithDescription(
+        me.progneo.pokepoke.common.presentaion.content.IconWithDescription(
             iconPainter = painterResource(R.drawable.icon_heart_broken),
             text = text
         )
@@ -39,7 +37,7 @@ fun ErrorPanelContainer(text: String, onReloadClick: () -> Unit) {
 @PreviewLightDark
 @Composable
 private fun PreviewErrorPanelContainer() {
-    PokePokeTheme {
+    me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme {
         ErrorPanelContainer(text = "Error message", onReloadClick = {})
     }
 }

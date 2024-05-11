@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.ui.theme.PokePokeTheme
 import me.progneo.pokepoke.feature.detail.presentation.model.PokemonPresentationModel
 import me.progneo.pokepoke.feature.detail.presentation.view.content.DescriptionBlock
 import me.progneo.pokepoke.feature.detail.presentation.view.content.ImageCarousel
@@ -34,7 +33,7 @@ internal fun PokemonDetailContainer(pokemon: PokemonPresentationModel) {
 private fun PreviewPokemonDetailContainer(
     @PreviewParameter(PokemonPreviewParameterProvider::class) pokemon: PokemonPresentationModel
 ) {
-    PokePokeTheme {
+    me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme {
         Box(
             modifier = Modifier
                 .background(colorScheme.background)
