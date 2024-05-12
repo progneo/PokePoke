@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.presentaion
+package me.progneo.pokepoke.common.presentaion.util
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
@@ -7,10 +7,12 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 
+private const val DEFAULT_DELAY_MILLIS = 300
+
 @Composable
 fun AnimatedVisibility(
     visible: Boolean = true,
-    delayMillis: Int = 300,
+    delayMillis: Int = DEFAULT_DELAY_MILLIS,
     content: @Composable AnimatedVisibilityScope.() -> Unit
 ) {
     AnimatedVisibility(

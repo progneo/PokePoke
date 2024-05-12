@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.presentaion
+package me.progneo.pokepoke.common.presentaion.util
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -19,18 +19,22 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
 
+private const val ANIMATION_DURATION = 1500
+private const val TRANSITION_LABEL = "Transition"
+private const val OFFSET_LABEL = "Offset"
+
 fun Modifier.shimmerEffect(): Modifier = composed {
     var size by remember {
         mutableStateOf(IntSize.Zero)
     }
-    val transition = rememberInfiniteTransition(label = "Transition")
+    val transition = rememberInfiniteTransition(label = TRANSITION_LABEL)
     val startOffsetX by transition.animateFloat(
         initialValue = -2 * size.width.toFloat(),
         targetValue = 2 * size.width.toFloat(),
         animationSpec = infiniteRepeatable(
-            animation = tween(1500)
+            animation = tween(ANIMATION_DURATION)
         ),
-        label = "Offset"
+        label = OFFSET_LABEL
     )
 
     background(

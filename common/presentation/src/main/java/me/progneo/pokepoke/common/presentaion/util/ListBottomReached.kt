@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.presentaion
+package me.progneo.pokepoke.common.presentaion.util
 
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable

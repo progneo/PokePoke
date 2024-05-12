@@ -13,7 +13,6 @@ android {
         minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -23,10 +22,6 @@ android {
 
         release {
             isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -50,10 +45,10 @@ android {
 }
 
 dependencies {
-    implementation(projects.common.core)
-    implementation(projects.common.presentation)
+    implementation(projects.commonCore)
+    implementation(projects.commonPresentation)
 
-    implementation(projects.feature.detail.domain)
+    implementation(projects.detailDomain)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

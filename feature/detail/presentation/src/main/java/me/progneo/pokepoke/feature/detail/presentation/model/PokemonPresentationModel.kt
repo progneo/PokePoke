@@ -1,6 +1,6 @@
 package me.progneo.pokepoke.feature.detail.presentation.model
 
-data class PokemonPresentationModel(
+internal data class PokemonPresentationModel(
     val name: String,
     val baseExperience: Int?,
     val height: Int?,

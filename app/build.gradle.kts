@@ -29,10 +29,6 @@ android {
 
         release {
             isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -56,20 +52,20 @@ android {
 }
 
 dependencies {
-    implementation(projects.common.core)
-    implementation(projects.common.presentation)
+    implementation(projects.commonCore)
+    implementation(projects.commonPresentation)
     implementation(projects.network)
 
-    implementation(projects.datasource.api)
-    implementation(projects.datasource.impl)
+    implementation(projects.datasourceApi)
+    implementation(projects.datasourceImpl)
 
-    implementation(projects.feature.home.domain)
-    implementation(projects.feature.home.data)
-    implementation(projects.feature.home.presentation)
+    implementation(projects.homeDomain)
+    implementation(projects.homeData)
+    implementation(projects.homePresentation)
 
-    implementation(projects.feature.detail.domain)
-    implementation(projects.feature.detail.data)
-    implementation(projects.feature.detail.presentation)
+    implementation(projects.detailDomain)
+    implementation(projects.detailData)
+    implementation(projects.detailPresentation)
 
     // lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)

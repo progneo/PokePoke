@@ -7,7 +7,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
-import me.progneo.pokepoke.common.presentaion.test.MainDispatcherRule
 import me.progneo.pokepoke.feature.home.domain.model.pokemonList.PokemonListRequestDomainModel
 import me.progneo.pokepoke.feature.home.domain.usecase.GetPokemonListUseCase
 import me.progneo.pokepoke.feature.home.presentation.mapper.toPresentation

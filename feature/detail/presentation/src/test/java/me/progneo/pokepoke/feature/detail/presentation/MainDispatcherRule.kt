@@ -1,4 +1,4 @@
-package me.progneo.pokepoke.common.presentaion.test
+package me.progneo.pokepoke.feature.detail.presentation
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

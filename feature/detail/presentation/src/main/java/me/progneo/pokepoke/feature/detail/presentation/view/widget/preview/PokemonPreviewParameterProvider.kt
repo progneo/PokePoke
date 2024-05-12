@@ -3,7 +3,8 @@ package me.progneo.pokepoke.feature.detail.presentation.view.widget.preview
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import me.progneo.pokepoke.feature.detail.presentation.model.PokemonPresentationModel
 
-class PokemonPreviewParameterProvider : PreviewParameterProvider<PokemonPresentationModel> {
+internal class PokemonPreviewParameterProvider :
+    PreviewParameterProvider<PokemonPresentationModel> {
     override val values = sequenceOf(
         PokemonPresentationModel(
             name = "clefairy",

@@ -14,7 +14,7 @@ import me.progneo.pokepoke.feature.detail.domain.model.PokemonTypeDomainModel
 import me.progneo.pokepoke.feature.detail.domain.model.PokemonTypePastDomainModel
 import me.progneo.pokepoke.feature.detail.domain.model.VersionGameIndexDomainModel
 
-fun PokemonDataModel.toDomain() = PokemonDomainModel(
+internal fun PokemonDataModel.toDomain() = PokemonDomainModel(
     id = this.id,
     name = this.name,
     baseExperience = this.baseExperience,
@@ -22,8 +22,7 @@ fun PokemonDataModel.toDomain() = PokemonDomainModel(
     isDefault = this.isDefault,
     order = this.order,
     weight = this.weight,
-    abilities =
-    this.abilities?.map { ability ->
+    abilities = this.abilities?.map { ability ->
         PokemonAbilityDomainModel(
             isHidden = ability.isHidden,
             slot = ability.slot,
@@ -31,15 +30,13 @@ fun PokemonDataModel.toDomain() = PokemonDomainModel(
         )
     },
     forms = this.forms,
-    gameIndices =
-    this.gameIndices?.map { gameIndex ->
+    gameIndices = this.gameIndices?.map { gameIndex ->
         VersionGameIndexDomainModel(
             gameIndex = gameIndex.gameIndex,
             version = gameIndex.version
         )
     },
-    heldItems =
-    this.heldItems?.map { item ->
+    heldItems = this.heldItems?.map { item ->
         PokemonHeldItemDomainModel(
             item = item.item,
             versionDetails =
@@ -52,8 +49,7 @@ fun PokemonDataModel.toDomain() = PokemonDomainModel(
         )
     },
     locationAreaEncounters = this.locationAreaEncounters,
-    moves =
-    this.moves?.map { move ->
+    moves = this.moves?.map { move ->
         PokemonMoveDomainModel(
             move = move.move,
             versionGroupDetails =
@@ -66,8 +62,7 @@ fun PokemonDataModel.toDomain() = PokemonDomainModel(
             }
         )
     },
-    pastTypes =
-    this.pastTypes?.map { pastType ->
+    pastTypes = this.pastTypes?.map { pastType ->
         PokemonTypePastDomainModel(
             generation = pastType.generation,
             types =
@@ -79,8 +74,7 @@ fun PokemonDataModel.toDomain() = PokemonDomainModel(
             }
         )
     },
-    sprites =
-    this.sprites?.let { sprites ->
+    sprites = this.sprites?.let { sprites ->
         PokemonSpritesDomainModel(
             frontDefault = sprites.frontDefault,
             frontShiny = sprites.frontShiny,
@@ -92,24 +86,21 @@ fun PokemonDataModel.toDomain() = PokemonDomainModel(
             backShinyFemale = sprites.backShinyFemale
         )
     },
-    cries =
-    this.cries?.let { cries ->
+    cries = this.cries?.let { cries ->
         PokemonCriesDomainModel(
             latest = cries.latest,
             legacy = cries.legacy
         )
     },
     species = this.species,
-    stats =
-    this.stats?.map { stat ->
+    stats = this.stats?.map { stat ->
         PokemonStatDomainModel(
             stat = stat.stat,
             effort = stat.effort,
             baseStat = stat.baseStat
         )
     },
-    types =
-    this.types?.map { type ->
+    types = this.types?.map { type ->
         PokemonTypeDomainModel(
             slot = type.slot,
             type = type.type

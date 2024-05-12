@@ -1,6 +1,6 @@
 package me.progneo.pokepoke.feature.detail.presentation.model
 
-sealed interface DetailViewState {
+internal sealed interface DetailViewState {
     data class Success(val pokemon: PokemonPresentationModel) : DetailViewState
 
     data object Loading : DetailViewState

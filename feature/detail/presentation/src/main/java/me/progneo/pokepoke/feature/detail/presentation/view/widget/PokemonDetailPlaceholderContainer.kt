@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import me.progneo.pokepoke.common.presentaion.shimmerEffect
+import me.progneo.pokepoke.common.presentaion.util.shimmerEffect
 import me.progneo.pokepoke.feature.detail.presentation.view.content.SingleValueDescriptionRowPlaceholder
 
 @Composable

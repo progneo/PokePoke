@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import coil.compose.SubcomposeAsyncImage
 import kotlin.math.absoluteValue
-import me.progneo.pokepoke.common.presentaion.shimmerEffect
+import me.progneo.pokepoke.common.presentaion.util.shimmerEffect
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

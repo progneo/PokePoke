@@ -26,10 +26,10 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import me.progneo.pokepoke.common.core.extension.capitalize
-import me.progneo.pokepoke.common.presentaion.AnimatedVisibility
-import me.progneo.pokepoke.common.presentaion.ScreenEnterObserver
-import me.progneo.pokepoke.common.presentaion.shimmerEffect
 import me.progneo.pokepoke.common.presentaion.theme.PokePokeTheme
+import me.progneo.pokepoke.common.presentaion.util.AnimatedVisibility
+import me.progneo.pokepoke.common.presentaion.util.ScreenEnterObserver
+import me.progneo.pokepoke.common.presentaion.util.shimmerEffect
 import me.progneo.pokepoke.common.presentaion.widget.ErrorPanelContainer
 import me.progneo.pokepoke.feature.detail.presentation.R
 import me.progneo.pokepoke.feature.detail.presentation.model.DetailViewAction

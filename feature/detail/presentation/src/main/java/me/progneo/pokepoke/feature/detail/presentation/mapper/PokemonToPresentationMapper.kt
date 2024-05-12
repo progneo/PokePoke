@@ -3,7 +3,7 @@ package me.progneo.pokepoke.feature.detail.presentation.mapper
 import me.progneo.pokepoke.feature.detail.domain.model.PokemonDomainModel
 import me.progneo.pokepoke.feature.detail.presentation.model.PokemonPresentationModel
 
-fun PokemonDomainModel.toPresentation() = PokemonPresentationModel(
+internal fun PokemonDomainModel.toPresentation() = PokemonPresentationModel(
     name = this.name.toString(),
     baseExperience = this.baseExperience,
     height = this.height,

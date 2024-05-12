@@ -13,7 +13,6 @@ android {
         minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -23,10 +22,6 @@ android {
 
         release {
             isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -39,11 +34,11 @@ android {
 }
 
 dependencies {
-    implementation(projects.common.core)
+    implementation(projects.commonCore)
 
     implementation(projects.network)
 
-    implementation(projects.datasource.api)
+    implementation(projects.datasourceApi)
 
     // hilt
     implementation(libs.dagger.hilt.android)

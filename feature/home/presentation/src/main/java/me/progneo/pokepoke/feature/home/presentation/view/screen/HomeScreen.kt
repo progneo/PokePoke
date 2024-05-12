@@ -16,7 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import me.progneo.pokepoke.common.presentaion.ScreenEnterObserver
+import me.progneo.pokepoke.common.presentaion.util.AnimatedVisibility
+import me.progneo.pokepoke.common.presentaion.util.ScreenEnterObserver
 import me.progneo.pokepoke.common.presentaion.widget.ErrorPanelContainer
 import me.progneo.pokepoke.feature.home.presentation.R
 import me.progneo.pokepoke.feature.home.presentation.model.HomeViewAction
@@ -67,7 +68,7 @@ internal fun HomeScreen(state: HomeViewState, onAction: (HomeViewAction) -> Unit
                 .fillMaxHeight()
                 .padding(innerPadding)
         ) {
-            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(
+            AnimatedVisibility(
                 visible = state is HomeViewState.Success
             ) {
                 if (state is HomeViewState.Success) {
@@ -79,12 +80,12 @@ internal fun HomeScreen(state: HomeViewState, onAction: (HomeViewAction) -> Unit
                     )
                 }
             }
-            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(
+            AnimatedVisibility(
                 visible = state is HomeViewState.Loading
             ) {
                 PokemonListPlaceholderContainer()
             }
-            me.progneo.pokepoke.common.presentaion.AnimatedVisibility(
+            AnimatedVisibility(
                 visible = state is HomeViewState.Error
             ) {
                 ErrorPanelContainer(

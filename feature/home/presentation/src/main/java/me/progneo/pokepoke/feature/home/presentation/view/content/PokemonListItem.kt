@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import me.progneo.pokepoke.common.core.extension.capitalize
-import me.progneo.pokepoke.common.presentaion.shimmerEffect
+import me.progneo.pokepoke.common.presentaion.util.shimmerEffect
 import me.progneo.pokepoke.feature.home.presentation.model.PokemonPresentationModel
 import me.progneo.pokepoke.feature.home.presentation.view.widget.preview.PokemonPreviewParameterProvider
 

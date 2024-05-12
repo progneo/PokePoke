@@ -10,7 +10,7 @@ import me.progneo.pokepoke.feature.detail.domain.usecase.GetPokemonUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class UseCaseModule {
+internal abstract class UseCaseModule {
 
     @Binds
     @Singleton
